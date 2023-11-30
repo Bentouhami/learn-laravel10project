@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/blog', function(Request $resquest){
+
+    return [
+        'name' => $resquest->input('name', 'john Doe'),
+        'content' => 'This is a blog post about Laravel.'
+    ];
 });
